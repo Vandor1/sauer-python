@@ -6,7 +6,7 @@ def main(A):
     # Shape of the matrix in question (3, 4) in our question.
     (n, m) = np.shape(A)
 
-    # Perform gaussian elimination - algorithm stolen from Jordan Barry
+    # Perform gaussian elimination - algorithm borrowed from Jordan Barry
     for j in range(n - 1):
         for i in range(j + 1, n):
             A[i, :] = -(A[i, j] / A[j, j]) * A[j, :] + A[i, :]
