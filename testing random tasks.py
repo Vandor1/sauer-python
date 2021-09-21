@@ -31,6 +31,5 @@ def main3():
     print(l)
     print(u)
 
-
 if __name__ == '__main__':
     main3()
