@@ -44,7 +44,7 @@ def b_setup(a):
 
 
 def main():
-    a = sparse_matrix_setup(1000)
+    a = sparse_matrix_setup(100)
     # print(a)
     b = b_setup(a)
     # print(b)
