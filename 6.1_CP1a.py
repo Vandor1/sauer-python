@@ -26,5 +26,23 @@ def main():
     print(DF({"t": t, "w": w, "Error": error, 'True value': true_value}).set_index('t')[['True value', 'w', 'Error']])
 
 
+def exact_solution_a(t):
+    return (t**2)/2 +1
+
+
+def main_a():
+    f = lambda t, y: t
+    h = 0.1
+    t = np.arange(0, 1 + h, h)
+    w = euler(1, f, h, t)
+    true_value = exact_solution_a(t)
+    error = abs(true_value - w)
+    print(DF({"t": t, "w": w, "Error": error, 'True value': true_value}).set_index('t')[['True value', 'w', 'Error']])
+
+
+
 if __name__ == "__main__":
+    print("A:")
+    main_a()
+    print("B:")
     main()
