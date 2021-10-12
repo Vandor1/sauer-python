@@ -16,8 +16,8 @@ def main():
     for i in range(0, array.size):
         potato = (1 - mathsec.sec(array[i])) / (math.tan(array[i]) ** 2)  # This is the original expression.
         potato2 = (-1) / (1 + mathsec.sec(array[i]))  # Revised expression.
-        # print(potato2)
-        print(potato2)
+        print(potato-potato2)
+        #print(potato2)
 
 
 if __name__ == '__main__':

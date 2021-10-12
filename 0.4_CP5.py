@@ -6,7 +6,8 @@ def main():
     b = 1.2222222
     ans = b ** 2 / (math.sqrt(a ** 2 + b ** 2) + a)  # utregning for hånd.
     print(ans)
-
+    dance = math.sqrt(a**2 + b**2) * math.sqrt(a**2 - b**2) / math.sqrt(a**2 - b**2)
+    print(dance)
 
 # 2.23322*10^-10
 

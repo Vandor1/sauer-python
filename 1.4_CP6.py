@@ -7,6 +7,7 @@
 import numpy as np
 
 
+# Newtons method
 def main(f, Df, x0, epsilon, max_iter):
     xn = x0
     for n in range(0, max_iter):
@@ -26,5 +27,5 @@ def main(f, Df, x0, epsilon, max_iter):
 
 if __name__ == '__main__':
     f = lambda r: (np.pi * r ** 2 * 10) + (2 * np.pi * r ** 3) - 180
-    df = lambda r: (20 * r * np.pi) + (6 * np.pi * r**2)
+    df = lambda r: (20 * r * np.pi) + (6 * np.pi * r ** 2)
     main(f, df, 1, 1e-10, 10)

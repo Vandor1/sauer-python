@@ -26,7 +26,7 @@ def bisection(f, a, b, N):
 def func1(x): return x ** 3 - 9
 
 
-def func2(x): return (3 * x ** 3 ) + (x ** 2) - x - 5
+def func2(x): return (3 * x ** 3) + (x ** 2) - x - 5
 
 
 def func3(x): return (np.cos(x) ** 2) + 6 - x

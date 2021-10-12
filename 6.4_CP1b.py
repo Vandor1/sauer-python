@@ -24,6 +24,7 @@ def mainA():
     print(
         DF({"t": t, "w": w, "Error": error, 'Exact value': exact_value}).set_index('t')[['Exact value', 'w', 'Error']])
 
+
 # Task B
 def mainB():
     f = lambda t, y: (t ** 2) * y  # From exercise 6.4.1

@@ -23,13 +23,18 @@ def main2():
 # PA = LU Factorization using scipy.
 def main3():
     # 2.4, 2c) A = np.array([[1, 2, -3], [2, 4, 2], [-1, 0, 3]])
-    # 2.4, 3b) A = np.array([[3, 1, 2], [6, 3, 4], [3, 1, 5]])
-    A = np.array([[-1, 0, 1], [2, 1, 1], [-1, 2, 0]])
-
-    p, l, u = lu(A)
+    #2.4, 3b)
+    A = np.array([[3, 1, 2], [6, 3, 4], [3, 1, 5]])
+    # A = np.array([[-1, 0, 1], [2, 1, 1], [-1, 2, 0]])
+    B = np.array([[1, 2, -1, 2], [0, 3, 1, 4], [2, -1, 1, 2]])
+    C = np.array([[4, 2, 0], [4, 4, 2], [2, 2, 3]])
+    D = np.array([[1, 2, -3], [2, 4, 2], [-1, 0, 3]])
+    E = np.array([[3, 2, 1], [6, 3, 4], [3, 1, 5]])
+    p, l, u = lu(E)
     print(p)
     print(l)
     print(u)
+
 
 if __name__ == '__main__':
     main3()
