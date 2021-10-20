@@ -32,3 +32,6 @@ def exact_sol(t):
 def main():
     a, b = 0, 1
     y_0 = (1, 0)
+
+if __name__ == '__main__':
+    main()
