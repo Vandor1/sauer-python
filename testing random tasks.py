@@ -1,5 +1,6 @@
 import numpy as np
 from scipy.linalg import lu
+import math
 
 
 # conditional values etc.
@@ -39,5 +40,19 @@ def main3():
     print(np.dot(Q,R))
 
 
-if __name__ == '__main__':
-    main3()
+import sympy as sy
+
+def f(x):
+    return x ** 4 * (sy.sin(x) * sy.cos(x) +1)
+
+import math
+
+def g(x):
+    return 3*math.exp(1-x**2)
+
+if __name__ == "__main__":
+    print(g(1.1))
+
+    x = sy.Symbol("x")
+    print(sy.integrate(f(x), (x, -3.0, 3.0)))
+
