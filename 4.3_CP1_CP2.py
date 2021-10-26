@@ -1,5 +1,6 @@
 # Write a program that implements classical Gram-Schmidt to find the reduced QR factorization.
 import numpy as np
+import time
 
 
 def numpygramschmidt(X):
@@ -40,8 +41,17 @@ def modifiedgramschmidt(A):
 def main():
     A = np.array([[4, 0], [3, 1]])
     Q, R = numpygramschmidt(A)
+
+    start = time.time()
     r, q = gramschmidt(A)
+    end = time.time()
+    result = end - start
+
+    start2 = time.time()
     mr, mq = modifiedgramschmidt(A)
+    end = time.time()
+    result2 = end - start2
+
     print("Solution:")
     print("Q:\n", Q)
     print("R:\n", R)
@@ -51,6 +61,10 @@ def main():
     print("\nMy Modified:")
     print("Q:\n", mq)
     print("R:\n", mr)
+    if result2 > result:
+        print("Modified is the slowest.")
+    else:
+        print("Modified is the fastest.")
 
 
 if __name__ == "__main__":
