@@ -1,29 +1,26 @@
 # Consider the world population problem of Computer Problem 3.1.1. Find the best exponential fit of the data points
 # by using linearization. Estimate the 1980 population, and find the estimation error.
 import numpy as np
-import matplotlib.pyplot as plt
-
 
 def main():
-    A = np.array([[1, 1960], [1, 1970], [1, 1990], [1, 2000]])
-    b = np.array([[3039585530], [3707475887], [5281653820], [6079603571]])
+    A = np.array([[1, 0], [1, 10], [1, 30], [1, 40]])
+    b = np.array([[np.log(3039585530)], [np.log(3707475887)], [np.log(5281653820)], [np.log(6079603571)]])
+    b2 = np.array([[(3039585530)], [(3707475887)], [(5281653820)], [(6079603571)]])
     lstsq = np.linalg.lstsq(A, b, rcond=None)
+    lhs = A.T@A
+    rhs = A.T@b
+    ans = np.linalg.solve(lhs,rhs)
+    print(ans)
+    r = b - A@ans
+
     leastSquares = lstsq[0]
-    print(leastSquares)
-    function = lambda t: leastSquares[0] * np.exp(leastSquares[1] * t)
+    function = lambda t: leastSquares[0] * np.exp(leastSquares[1]*t)
+    leastSquares[0] = np.exp(leastSquares[0])
 
-    year = np.array([1960, 1970, 1990, 2000], dtype=np.int64)
-    population = np.array([3039585530, 3707475887, 5281653820, 6079603571])
-    x_range = np.linspace(1960, 2000, 1000)
+    RMSE = np.sqrt(sum((b2 - r) ** 2) / len(b2))
 
-    plt.figure(figsize=(10, 6))
-    plt.scatter(year, population)
-    plt.plot(x_range, function(x_range), c='g')
-    plt.show()
-
-    error1 = np.sqrt(sum((population - function(year)) ** 2) / len(year))
-    print("ESTIMATE 1980:", function(1980))
-    print("RMSE: ", error1)
+    print("ESTIMATE 1980:", function(20))
+    print("RMSE: ", RMSE)
 
 
 if __name__ == "__main__":
