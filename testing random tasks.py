@@ -4,28 +4,28 @@ import matplotlib.pyplot as plt
 
 # conditional values etc.
 def main():
-    # 4.1 2a)
+    print("4.1 2a)")
     A = np.array([[1, 1, 0], [0, 1, 1], [1, 2, 1], [1, 0, 1]])
     b = np.array([2, 2, 3, 4]).reshape(4, 1)
     x = np.array([2, -1 / 3, 2]).reshape(3, 1)
     z = b - np.dot(A, x)
-    print(np.sqrt((z[0] ** 2 + z[1] ** 2 + z[2] ** 2 + z[3] ** 2) / 2))
+    print(np.sqrt((z[0] ** 2 + z[1] ** 2 + z[2] ** 2 + z[3] ** 2) / 4))
 
-    # 4.1 3)
+    print("\n4.1 3)")
     c = [[1, 0], [1, 0], [1, 0]]
     d = [[1], [5], [6]]
     ct = np.transpose(c)
     print(np.dot(ct, c))
 
-    # 4.1 8a)
+    print("\n4.1 8a)")
     e = [[1, 1, 1, 1], [0, 1, 2, 5]]
     g = [[1, 0], [1, 1], [1, 2], [1, 5]]
     b2 = [[0], [3], [3], [6]]
     print(np.dot(e, g))
-    print(np.linalg.lstsq(g, b2, rcond=None))
-    x2 = [[0.857142], [15 / 14]]
+    print(np.linalg.lstsq(g, b2, rcond=None)[0])
+    x2 = [[0.85714286], [1.07142857]]
     z2 = b2 - np.dot(g, x2)
-    print(np.sqrt((z2[0] ** 2 + z2[1] ** 2 + z2[2] ** 2 + z2[3] ** 2) / 2))
+    print(np.sqrt((z2[0] ** 2 + z2[1] ** 2 + z2[2] ** 2 + z2[3] ** 2) / 4))
 
 
 # finding norms.
@@ -100,5 +100,13 @@ def main4():
         print("First model is best!")
 
 
+def main5():
+    Q = np.array([[2 / 3, 1 / 3, 0], [1 / 3, -2 / 3, -2 / 3], [0, 2 / 3, -2 / 3], [2 / 3, 0, 1 / 3]])
+    A = np.array([[2, -1, 4], [1, -3, -9], [0, 2, -2], [2, -2, 5]])
+    qt = np.transpose(Q)
+    R = np.dot(qt, A)
+    print(R)
+
+
 if __name__ == "__main__":
-    main4()
+    main()

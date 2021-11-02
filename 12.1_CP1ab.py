@@ -3,25 +3,28 @@
 import numpy as np
 
 
-def poweriteration(x, u, A, eig, n):
+def power_iteration(x, A, n=40):
+    for _ in range(0, n):
+        eigenvector = x / np.linalg.norm(x)  # normalize vector
+        x = A.dot(eigenvector)  # power step
+        # eigenvalue = np.matmul(np.transpose(eigenvector), x)  # Rayleigh quotient
+        eigenvalue = eigenvector.dot(x)  # Rayleigh quotient
+    eigenvector = x / np.linalg.norm(x)
+    return eigenvalue, eigenvector
 
-    for j in range(0, n):
-        u[j-1] = x[j-1] / np.sqrt(np.sum(x[j-1] ** 2)) #normalize vector
-        x[j] = np.dot(A, u[j-1]) #power step
-        eig[j] = np.transpose(u[j-1]) * x[j] # Rayleigh quotient
-    u[j] = x[j] / np.sqrt(np.sum(x[j] ** 2))
-    return u
 
 def main():
     A = np.array([[10, -12, -6], [5, -5, -4], [-1, 0, 3]])  # Matrix for a)
     B = np.array([[-14, 20, 10], [-19, 27, 12], [23, -32, -13]])  # Matrix for b)
     n, m = np.shape(A)
-
-    
-    n, m = np.shape(B)
-
-
-
+    x = np.ones(n)
+    # print("A:")
+    # print(power_iteration(x, A))
+    #
+    # # n, m = np.shape(B)
+    # print("\nB:")
+    # print(power_iteration(x, B))
+    print(power_iteration(A, x, 10))
 
 
 if __name__ == "__main__":

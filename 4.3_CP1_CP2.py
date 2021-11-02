@@ -31,7 +31,7 @@ def modifiedgramschmidt(A):
     for j in range(n):
         y = A[:, j]
         for i in range(j):
-            r[i, j] = np.dot(np.transpose(q[i, :]), y)  # <- change A[:,j] to y.
+            r[i, j] = np.dot(np.transpose(q[i, :]), y)  # <- changed A[:,j] to y.
             y = y - np.dot(r[i, j], q[i])
         r[j, j] = np.sqrt(np.sum(y ** 2))
         q[j] = y / r[j, j]
