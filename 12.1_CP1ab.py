@@ -7,8 +7,9 @@ def power_iteration(x, A, n=40):
     for _ in range(0, n):
         eigenvector = x / np.linalg.norm(x)  # normalize vector
         x = A.dot(eigenvector)  # power step
-        # eigenvalue = np.matmul(np.transpose(eigenvector), x)  # Rayleigh quotient
+        #eigenvalue = np.matmul(np.transpose(eigenvector), x)  # Rayleigh quotient
         eigenvalue = eigenvector.dot(x)  # Rayleigh quotient
+        #eigenvalue = eigenvector.T @ A @ eigenvector
     eigenvector = x / np.linalg.norm(x)
     return eigenvalue, eigenvector
 
@@ -24,7 +25,7 @@ def main():
     # # n, m = np.shape(B)
     # print("\nB:")
     # print(power_iteration(x, B))
-    print(power_iteration(A, x, 10))
+    print(power_iteration(x,A))
 
 
 if __name__ == "__main__":

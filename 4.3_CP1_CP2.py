@@ -42,6 +42,8 @@ def main():
     A = np.array([[4, 0], [3, 1]])
     Q, R = numpygramschmidt(A)
 
+    # B = np.array([[4,0,3],[8,2,6],[1,-2,7]])
+
     start = time.time()
     r, q = gramschmidt(A)
     end = time.time()
